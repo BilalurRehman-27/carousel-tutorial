@@ -177,10 +177,13 @@ function Carousel(props) {
             elem.style.transform = `translateX(` + toTranslate + `%)`;
         }
     }
-
-    const displayItems = Children.map(children, (child, index) => (
+    console.log("================================")
+    console.log("Children",Children);
+    const displayItems = Children.map(children, (child, index) => {
+      debugger
+      return(
         <div className={classes.CarouselItem} id={`carouselitem` + index}>{child}</div>
-    ));
+    )});
 
     const positionIndicators = Children.map(children, (child, index) => (
         <div
@@ -203,7 +206,7 @@ function Carousel(props) {
         <div>
             <div className={classes.Container}>
                 <div className={classes.LeftArrow} onClick={prevClickHandler}>❰</div>
-                <div 
+                <div
                     className={classes.DisplayFrame}
                     id="DisplayFrame"
                     onTouchStart={(e) => touchStartHandler(e)}
